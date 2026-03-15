@@ -1,0 +1,108 @@
+@{
+    ViewData["Title"] = "Inicio";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var menuItems = ViewBag.MenuItems as IEnumerable<MenuItemListDto> ?? Enumerable.Empty<MenuItemListDto>();
+}
+
+<!-- Navbar dinamico -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="#">LandingAdmin</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navMenu">
+            <ul class="navbar-nav ms-auto">
+                @foreach (var item in menuItems)
+                {
+                    <li class="nav-item">
+                        <a class="nav-link" href="@item.UrlDestino">@item.Etiqueta</a>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero -->
+<section id="inicio" class="d-flex align-items-center justify-content-center text-white text-center"
+         style="min-height:100vh;padding-top:70px;background:linear-gradient(135deg,#1a1a2e 0%,#16213e 60%,#0f3460 100%);">
+    <div class="container">
+        <h1 class="display-3 fw-bold mb-3">Bienvenido a LandingAdmin</h1>
+        <p class="lead mb-4">Una landing page con panel de administracion de menu via CRUD, desplegada en Railway.</p>
+        <a href="#nosotros" class="btn btn-primary btn-lg me-2">Conocer mas</a>
+        <a href="#contacto" class="btn btn-outline-light btn-lg">Contacto</a>
+    </div>
+</section>
+
+<!-- Nosotros -->
+<section id="nosotros" class="py-5 bg-light">
+    <div class="container">
+        <div class="row align-items-center g-4">
+            <div class="col-md-6">
+                <h2 class="fw-bold mb-3">Nosotros</h2>
+                <p class="text-muted">
+                    Somos un equipo apasionado por construir soluciones web modernas con arquitectura limpia y buenas practicas de desarrollo.
+                    Este proyecto demuestra una arquitectura de 3 capas con ASP.NET Core, Dapper y PostgreSQL.
+                </p>
+            </div>
+            <div class="col-md-6 text-center">
+                <i class="bi bi-people-fill text-primary" style="font-size:6rem;"></i>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Servicios -->
+<section id="servicios" class="py-5">
+    <div class="container">
+        <h2 class="fw-bold text-center mb-5">Servicios</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm border-0">
+                    <div class="card-body text-center p-4">
+                        <i class="bi bi-code-slash text-primary mb-3" style="font-size:3rem;"></i>
+                        <h5 class="card-title fw-bold">Desarrollo Web</h5>
+                        <p class="card-text text-muted">Aplicaciones web robustas con ASP.NET Core y arquitectura en capas.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm border-0">
+                    <div class="card-body text-center p-4">
+                        <i class="bi bi-database-fill text-success mb-3" style="font-size:3rem;"></i>
+                        <h5 class="card-title fw-bold">Base de Datos</h5>
+                        <p class="card-text text-muted">Diseno e implementacion con PostgreSQL usando Dapper para maxima performance.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm border-0">
+                    <div class="card-body text-center p-4">
+                        <i class="bi bi-cloud-arrow-up-fill text-info mb-3" style="font-size:3rem;"></i>
+                        <h5 class="card-title fw-bold">Deploy en la Nube</h5>
+                        <p class="card-text text-muted">Despliegue continuo en Railway con variables de entorno seguras.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contacto -->
+<section id="contacto" class="py-5 bg-dark text-white">
+    <div class="container text-center">
+        <h2 class="fw-bold mb-3">Contacto</h2>
+        <p class="text-muted mb-4">Escribinos para cualquier consulta o proyecto.</p>
+        <a href="mailto:info@landingadmin.com" class="btn btn-primary btn-lg">
+            <i class="bi bi-envelope-fill me-2"></i>info@landingadmin.com
+        </a>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="py-3 bg-black text-white text-center">
+    <div class="container">
+        <small>&copy; @DateTime.Now.Year LandingAdmin &mdash; Construido con ASP.NET Core 8 + Dapper + PostgreSQL</small>
+    </div>
+</footer>

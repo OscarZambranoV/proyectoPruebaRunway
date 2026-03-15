@@ -1,0 +1,29 @@
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Admin sidebar */
+#sidebar-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#sidebar-wrapper .list-group-item:hover {
+  background-color: #343a40 !important;
+  color: #fff !important;
+}
+
+#wrapper {
+  min-height: 100vh;
+}
+
+#page-content-wrapper {
+  min-width: 0;
+}
